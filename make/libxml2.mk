@@ -1,6 +1,6 @@
 include $(CLEAR_VARS)
 
-LOCAL_MODULE := libxml2
+LOCAL_MODULE := libxml2-ImageMagick
 
 LOCAL_CFLAGS := \
     -DLIBXML_THREAD_ENABLED=1 \

@@ -110,8 +110,8 @@ LOCAL_SRC_FILES := \
 
 LOCAL_STATIC_LIBRARIES := \
     libiconv \
-    libicuuc \
-    libicui18n
+    libicuuc-ImageMagick \
+    libicui18n-ImageMagick
 
 ifeq ($(LIBLZMA_ENABLED),true)
     LOCAL_STATIC_LIBRARIES += liblzma

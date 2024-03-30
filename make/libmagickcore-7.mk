@@ -312,17 +312,17 @@ endif
 
 ifeq ($(LIBPNG_ENABLED),true)
     LOCAL_CFLAGS += -DMAGICKCORE_PNG_DELEGATE=1
-    LOCAL_STATIC_LIBRARIES += libpng
+    LOCAL_STATIC_LIBRARIES += libpng-ImageMagick
 endif
 
 ifeq ($(LIBJPEG_TURBO_ENABLED),true)
     LOCAL_CFLAGS += -DMAGICKCORE_JPEG_DELEGATE=1
-    LOCAL_STATIC_LIBRARIES += libjpeg-turbo
+    LOCAL_STATIC_LIBRARIES += libjpeg-turbo-ImageMagick
 endif
 
 ifeq ($(LIBTIFF_ENABLED),true)
     LOCAL_CFLAGS += -DMAGICKCORE_TIFF_DELEGATE=1
-    LOCAL_STATIC_LIBRARIES += libtiff
+    LOCAL_STATIC_LIBRARIES += libtiff-ImageMagick
 endif
 
 ifeq ($(LIBFREETYPE2_ENABLED),true)
@@ -334,7 +334,7 @@ ifeq ($(LIBWEBP_ENABLED),true)
     LOCAL_CFLAGS += \
         -DMAGICKCORE_WEBP_DELEGATE=1 \
         -DMAGICKCORE_WEBPMUX_DELEGATE=1
-    LOCAL_STATIC_LIBRARIES += libwebp libwebpmux
+    LOCAL_STATIC_LIBRARIES += libwebp-ImageMagick libwebpmux-ImageMagick
 endif
 
 ifeq ($(LIBOPENJPEG_ENABLED),true)
@@ -349,7 +349,7 @@ endif
 
 ifeq ($(LIBXML2_ENABLED),true)
     LOCAL_CFLAGS += -DMAGICKCORE_XML_DELEGATE=1
-    LOCAL_STATIC_LIBRARIES += libxml2
+    LOCAL_STATIC_LIBRARIES += libxml2-ImageMagick
 endif
 
 ifeq ($(LIBLZMA_ENABLED),true)

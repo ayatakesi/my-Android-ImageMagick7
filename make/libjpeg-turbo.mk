@@ -1,6 +1,6 @@
 include $(CLEAR_VARS)
 
-LOCAL_MODULE := libjpeg-turbo
+LOCAL_MODULE := libjpeg-turbo-ImageMagick
 LDFLAGS := -pie
 
 # prefer arm over thumb mode for performance gains

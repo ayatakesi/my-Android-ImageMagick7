@@ -1,6 +1,6 @@
 include $(CLEAR_VARS)
 
-LOCAL_MODULE    := libtiff
+LOCAL_MODULE    := libtiff-ImageMagick
 LOCAL_MODULE_FILENAME := libtiffobj
 
 # prefer arm over thumb mode for performance gains

@@ -1,6 +1,6 @@
 include $(CLEAR_VARS)
 
-LOCAL_MODULE    := libpng
+LOCAL_MODULE    := libpng-ImageMagick
 LOCAL_MODULE_FILENAME := libpngobj
 
 # prefer arm over thumb mode for performance gains

@@ -83,11 +83,11 @@ ifeq ($(LIBLZMA_ENABLED),true)
 endif
 
 ifeq ($(LIBJPEG_TURBO_ENABLED),true)
-    LOCAL_STATIC_LIBRARIES += libjpeg-turbo
+    LOCAL_STATIC_LIBRARIES += libjpeg-turbo-ImageMagick
 endif
 
 ifeq ($(LIBWEBP_ENABLED),true)
-    LOCAL_STATIC_LIBRARIES += libwebp libwebpmux
+    LOCAL_STATIC_LIBRARIES += libwebp-ImageMagick libwebpmux-ImageMagick
 endif
 
 

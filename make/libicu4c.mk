@@ -246,7 +246,7 @@ LOCAL_CFLAGS := $(local_cflags) -DPIC -fPIC -frtti
 LOCAL_CFLAGS += -Os
 LOCAL_EXPORT_CFLAGS += -DU_STATIC_IMPLEMENTATION=1
 #LOCAL_MODULE_TAGS := optional
-LOCAL_MODULE    := libicuuc
+LOCAL_MODULE    := libicuuc-ImageMagick
 LOCAL_SRC_FILES := $(src_files)
 
 # when built in android, they require uconfig_local (because of android project), but we don't need this
@@ -530,7 +530,7 @@ LOCAL_CFLAGS += $(local_cflags) -DPIC -fPIC -frtti
 LOCAL_CFLAGS += -Os
 LOCAL_EXPORT_CFLAGS += -DU_STATIC_IMPLEMENTATION=1
 LOCAL_MODULE_TAGS := optional
-LOCAL_MODULE := libicui18n
+LOCAL_MODULE := libicui18n-ImageMagick
 ifeq ($(LIBXML2_ENABLED),true)
     include $(BUILD_STATIC_LIBRARY)
 endif
@@ -548,7 +548,7 @@ stubdata_path:= $(call my-dir)
 dat_file := $(notdir $(wildcard $(stubdata_path)/*.dat))
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := icu-data
+LOCAL_MODULE := icu-data-ImageMagick
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_CLASS := ETC
 LOCAL_MODULE_PATH := $(TARGET_OUT)/usr/icu
@@ -557,7 +557,7 @@ LOCAL_SRC_FILES := $(dat_file)
 #include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := icu-data-host
+LOCAL_MODULE := icu-data-host-ImageMagick
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_CLASS := ETC
 LOCAL_MODULE_PATH := $(HOST_OUT)/usr/icu

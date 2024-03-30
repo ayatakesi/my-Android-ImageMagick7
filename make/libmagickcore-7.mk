@@ -25,6 +25,8 @@ else ifeq ($(TARGET_ARCH_ABI),x86_64)
     
 endif
 
+LOCAL_SHARED_LIBRARIES += libstdc++
+LOCAL_EXPORT_C_INCLUDES += $(IMAGE_MAGICK)
 
 LOCAL_C_INCLUDES  += \
     $(IMAGE_MAGICK) \
@@ -45,10 +47,9 @@ LOCAL_C_INCLUDES  += \
     $(BZLIB_LIB_PATH) \
     $(LCMS_LIB_PATH)/include
 
-
 ifneq ($(STATIC_BUILD),true)
 # ignored in static library builds
-    LOCAL_LDLIBS    := -L$(SYSROOT)/usr/lib -llog -lz
+    LOCAL_LDLIBS    := -llog -lz
 endif
 
 

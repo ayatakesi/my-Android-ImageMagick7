@@ -12,6 +12,9 @@ LOCAL_C_INCLUDES :=  \
     $(LZMA_LIB_PATH)/liblzma/api \
     $(WEBP_LIB_PATH)/src
 
+LOCAL_EXPORT_C_INCLUDES :=  \
+    $(TIFF_LIB_PATH)
+
 ifeq ($(LIBLZMA_ENABLED),true)
     LOCAL_CFLAGS += -DLZMA_SUPPORT=1
 endif

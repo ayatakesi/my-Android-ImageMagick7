@@ -10,6 +10,10 @@ LOCAL_C_INCLUDES := \
     $(LCMS_LIB_PATH)/include \
     $(LCMS_LIB_PATH)/src
 
+LOCAL_EXPORT_C_INCLUDES := \
+    $(LCMS_LIB_PATH) \
+    $(LCMS_LIB_PATH)/include \
+    $(LCMS_LIB_PATH)/src
 
 LOCAL_CFLAGS := \
     -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 \

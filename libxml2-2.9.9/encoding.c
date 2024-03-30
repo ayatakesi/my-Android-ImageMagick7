@@ -2394,7 +2394,6 @@ xmlCharEncOutput(xmlOutputBufferPtr output, int init)
 {
     int ret;
     size_t written;
-    size_t writtentot = 0;
     size_t toconv;
     int c_in;
     int c_out;
@@ -2451,7 +2450,6 @@ retry:
                             xmlBufContent(in), &c_in);
     xmlBufShrink(in, c_in);
     xmlBufAddLen(out, c_out);
-    writtentot += c_out;
     if (ret == -1) {
         if (c_out > 0) {
             /* Can be a limitation of iconv or uconv */
@@ -2536,7 +2534,6 @@ retry:
 	    }
 
             xmlBufAddLen(out, c_out);
-            writtentot += c_out;
             goto retry;
 	}
     }
@@ -2567,9 +2564,7 @@ xmlCharEncOutFunc(xmlCharEncodingHandler *handler, xmlBufferPtr out,
                   xmlBufferPtr in) {
     int ret;
     int written;
-    int writtentot = 0;
     int toconv;
-    int output = 0;
 
     if (handler == NULL) return(-1);
     if (out == NULL) return(-1);
@@ -2612,7 +2607,6 @@ retry:
                             in->content, &toconv);
     xmlBufferShrink(in, toconv);
     out->use += written;
-    writtentot += written;
     out->content[out->use] = 0;
     if (ret == -1) {
         if (written > 0) {
@@ -2621,8 +2615,6 @@ retry:
         }
         ret = -3;
     }
-
-    if (ret >= 0) output += ret;
 
     /*
      * Attempt to handle error cases
@@ -2700,7 +2692,6 @@ retry:
 	    }
 
             out->use += written;
-            writtentot += written;
             out->content[out->use] = 0;
             goto retry;
 	}

@@ -12,7 +12,7 @@ LOCAL_C_INCLUDES  :=  \
 
 ifneq ($(STATIC_BUILD),true)
     LOCAL_LDFLAGS += -fexceptions
-    LOCAL_LDLIBS    := -L$(SYSROOT)/usr/lib -llog -lz
+    LOCAL_LDLIBS    := -llog -lz
 endif
 
 LOCAL_SRC_FILES := \

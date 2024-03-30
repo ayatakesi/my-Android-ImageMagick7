@@ -14,7 +14,7 @@ LOCAL_C_INCLUDES  :=  \
 
 # always ignored in static builds
 ifneq ($(STATIC_BUILD),true)
-    LOCAL_LDLIBS    := -L$(SYSROOT)/usr/lib -llog -lz
+    LOCAL_LDLIBS    := -llog -lz
 endif
 
 LOCAL_SRC_FILES := \
@@ -53,6 +53,29 @@ ifeq ($(OPENCL_BUILD),true)
         -DMAGICKCORE__OPENCL=1
     LOCAL_SHARED_LIBRARIES += libopencl
 endif
+
+LOCAL_SHARED_LIBRARIES += libstdc++
+
+ifeq ($(TARGET_ARCH_ABI),arm64-v8a)
+    LOCAL_EXPORT_C_INCLUDES += $(IMAGE_MAGICK)/configs/arm64
+    LOCAL_C_INCLUDES += $(IMAGE_MAGICK)/configs/arm64
+else ifeq ($(TARGET_ARCH_ABI),armeabi-v7a)  
+    LOCAL_EXPORT_C_INCLUDES += $(IMAGE_MAGICK)/configs/arm
+    LOCAL_C_INCLUDES += $(IMAGE_MAGICK)/configs/arm
+else ifeq ($(TARGET_ARCH_ABI),x86)
+    LOCAL_EXPORT_C_INCLUDES += $(IMAGE_MAGICK)/configs/x86
+    LOCAL_C_INCLUDES += $(IMAGE_MAGICK)/configs/x86
+else ifeq ($(TARGET_ARCH_ABI),x86_64)
+    LOCAL_EXPORT_C_INCLUDES += $(IMAGE_MAGICK)/configs/x86-64
+    LOCAL_C_INCLUDES += $(IMAGE_MAGICK)/configs/x86-64
+    
+    ifneq ($(STATIC_BUILD),true)
+        LOCAL_LDFLAGS += -latomic
+    endif
+    
+endif
+
+LOCAL_EXPORT_C_INCLUDES += $(IMAGE_MAGICK)
 
 ifeq ($(BUILD_MAGICKWAND),true)
     ifeq ($(STATIC_BUILD),true)

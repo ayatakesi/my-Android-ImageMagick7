@@ -52,6 +52,20 @@ LZMA_LIB_PATH                   := $(LOCAL_PATH)/xz-5.2.4
 BZLIB_LIB_PATH                  := $(LOCAL_PATH)/bzip-1.0.8
 LCMS_LIB_PATH                   := $(LOCAL_PATH)/liblcms2-2.9
 
+LIBBZ2_ENABLED        := true
+LIBFFTW_ENABLED       := true
+LIBFREETYPE2_ENABLED  := true
+LIBJPEG_TURBO_ENABLED := true
+LIBLZMA_ENABLED       := true
+LIBOPENJPEG_ENABLED   := true
+LIBPNG_ENABLED        := true
+LIBTIFF_ENABLED       := true
+LIBWEBP_ENABLED       := true
+LIBXML2_ENABLED       := true
+LIBZLIB_ENABLED       := true
+LIBLCMS2_ENABLED      := true
+BUILD_MAGICKWAND      := true
+
 #-------------------------------------------------------------
 # Include all modules
 #-------------------------------------------------------------
@@ -68,6 +82,9 @@ include $(MAKE_PATH)/libjpeg-turbo.mk
 # libopenjpeg
 include $(MAKE_PATH)/libopenjpeg.mk
 
+# libwebp
+include $(MAKE_PATH)/libwebp.mk
+
 # libtiff
 include $(MAKE_PATH)/libtiff.mk
 
@@ -76,9 +93,6 @@ include $(MAKE_PATH)/libpng.mk
 
 # libfreetype2
 include $(MAKE_PATH)/libfreetype2.mk
-
-# libwebp
-include $(MAKE_PATH)/libwebp.mk
 
 # libfftw
 include $(MAKE_PATH)/libfftw.mk

@@ -186,7 +186,7 @@ ifeq ($(USE_CPUFEATURES),yes)
   LOCAL_STATIC_LIBRARIES := cpufeatures
 endif
 
-LOCAL_MODULE := webpdecoder_static
+LOCAL_MODULE := webpdecoder_static-ImageMagick
 
 ifeq ($(LIBWEBP_ENABLED),true)
     include $(BUILD_STATIC_LIBRARY)
@@ -199,7 +199,7 @@ endif
 
 include $(CLEAR_VARS)
 
-LOCAL_MODULE    := libwebp
+LOCAL_MODULE    := libwebp-ImageMagick
 
 LOCAL_SRC_FILES := \
     $(dsp_enc_srcs) \
@@ -247,7 +247,7 @@ LOCAL_C_INCLUDES := \
 # prefer arm over thumb mode for performance gains
 LOCAL_ARM_MODE := arm
 
-LOCAL_MODULE := libwebpmux
+LOCAL_MODULE := libwebpmux-ImageMagick
 
 LOCAL_STATIC_LIBRARIES := libwebp
 ifeq ($(LIBWEBP_ENABLED),true)

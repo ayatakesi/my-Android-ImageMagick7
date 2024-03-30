@@ -249,7 +249,7 @@ LOCAL_ARM_MODE := arm
 
 LOCAL_MODULE := libwebpmux-ImageMagick
 
-LOCAL_STATIC_LIBRARIES := libwebp
+LOCAL_STATIC_LIBRARIES := libwebp-ImageMagick
 ifeq ($(LIBWEBP_ENABLED),true)
     include $(BUILD_STATIC_LIBRARY)
 endif

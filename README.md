@@ -1,3 +1,43 @@
+# ImageMagick
+GNU Emacs30.0.50に含まれる`java/INSTALL`に記載されている修正、およびサブモジュールが他のモジュールと競合しないように修正を加えたpatchを適用したImageMagickモジュールのレポジトリ。
+
+# 作成した手順
+
+1. [GithubのAndroid-ImageMagick7](https://github.com/MolotovCherry/Android-ImageMagick7)をclone
+
+```bash
+$: git clone https://github.com/MolotovCherry/Android-ImageMagick7
+```
+
+2. デフォルトブランチ`master`からタグ`7.1.0-62`をチェックアウトして[^1]、修正用ブランチ`my/master`をcut
+
+```bash
+$: cd Android-ImageMagick7
+$: git checkout 7.1.0-62
+$: git checkout -b my/master
+```
+
+3. patchにより`java/INSTALL`に記載されている修正、更に他モジュールも一緒にビルドする場合のために必要?な修正[^2]を適用する
+
+```bash
+$: patch -p1 < PATCH_FOR_IMAGEMAGICK.patch
+```
+
+3. 空レポジトリにpush
+
+```bash
+$: git add -A
+$: git commit -m 'nanika commit messages...'
+$: gh repo create my-Android-ImageMagick7 --public
+$: git remote add mine https://github.com/JIBUN/my-Android-ImageMagick7
+$: git branch -M my/master
+$: git push -u mine my/master
+```
+[^1]:`7.1.0-62`をcheckoutした理由ですが、たしか`java/INSTALL`に記載されているpatchが適用できるコミットを探して見つけたコミットだったと思います。ただしこのコミットにたいしてもfuzzyで適用されたHunkが1つあったと記憶しています。
+[^2]:このモジュールには`libpng`、`webp`等、Emacsから見ると主モジュールであるようなモジュールがサブモジュールとして含まれています。Emacsのビルドシステムでは各モジュールを単一ディレクトリでビルドするために、バージョン相違とかで実行時エラーが発生してしまいます。各モジュール毎にディレクトリを分けてビルドすれば解決できるかなあ、と各サブモジュールのMakefileの位置を頼りに試行しましたが、コンパイラ/アーカイバに渡すようなフラグにはディレクトリを推測できる要素がなく、Android.mkの仕様として[LOCAL_MODULEは一意でなければならない](https://developer.android.com/ndk/guides/android_mk#local_module)らしいので、サブモジュールの`LOCAL_MODULE`、それらを参照する`LOCAL_(SHARED|STATIC)_LIBRARIES`にたいして後置子を追加してます。
+
+以上ここまで
+以下元の`README.md`
 
 # Android ImageMagick 7.1.0-62
 

@@ -197,7 +197,7 @@
 /* Define to 1 if you have the declaration of `strerror_r', and to 0 if you
    don't. */
 #ifndef MAGICKCORE_HAVE_DECL_STRERROR_R
-#define MAGICKCORE_HAVE_DECL_STRERROR_R 0
+#define MAGICKCORE_HAVE_DECL_STRERROR_R 1
 #endif
 
 /* Define to 1 if you have the declaration of `strlcpy', and to 0 if you

@@ -369,6 +369,7 @@ ifeq ($(LIBLCMS2_ENABLED),true)
     LOCAL_STATIC_LIBRARIES += liblcms2
 endif
 
+LOCAL_CFLAGS += -xc99=none
 
 ifeq ($(STATIC_BUILD),true)
     include $(BUILD_STATIC_LIBRARY)

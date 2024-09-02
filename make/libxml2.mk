@@ -21,6 +21,8 @@ LOCAL_CFLAGS := \
     -Wno-unused-function \
     -Wno-unused-parameter \
 
+LOCAL_CFLAGS += -Wunused-but-set-variable \
+
 ifeq ($(LIBLZMA_ENABLED),true)
     LOCAL_CFLAGS += -DLIBXML_LZMA_ENABLED=NO
 endif

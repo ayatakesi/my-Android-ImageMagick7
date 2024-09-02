@@ -20,7 +20,7 @@ LOCAL_CFLAGS := \
     -Wno-tautological-pointer-compare \
     -Wno-unused-function \
     -Wno-unused-parameter \
-    -Wunused-but-set-variable \
+    -Wno-error=unused-but-set-variable \
 
 ifeq ($(LIBLZMA_ENABLED),true)
     LOCAL_CFLAGS += -DLIBXML_LZMA_ENABLED=NO
